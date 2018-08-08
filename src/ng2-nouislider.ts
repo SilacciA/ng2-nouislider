@@ -156,14 +156,15 @@ export class NouisliderComponent implements ControlValueAccessor, OnInit, OnChan
   }
 
   ngOnChanges(changes: any) {
-    if (this.slider && (changes.min || changes.max || changes.step || changes.range)) {
+    if (this.ngModel && this.slider && (changes.min || changes.max || changes.step || changes.range)) {
       setTimeout(() => {
         this.slider.updateOptions({
           range: Object.assign({}, {
             min: this.min,
             max: this.max
           }, this.range || {}),
-          step: this.step
+          step: this.step,
+          start: this.ngModel
         });
       });
     }
