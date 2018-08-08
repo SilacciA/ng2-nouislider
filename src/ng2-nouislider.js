@@ -156,14 +156,15 @@ var NouisliderComponent = (function () {
     };
     NouisliderComponent.prototype.ngOnChanges = function (changes) {
         var _this = this;
-        if (this.slider && (changes.min || changes.max || changes.step || changes.range)) {
+        if (this.ngModel && this.slider && (changes.min || changes.max || changes.step || changes.range)) {
             setTimeout(function () {
                 _this.slider.updateOptions({
                     range: Object.assign({}, {
                         min: _this.min,
                         max: _this.max
                     }, _this.range || {}),
-                    step: _this.step
+                    step: _this.step,
+                    start: _this.ngModel
                 });
             });
         }

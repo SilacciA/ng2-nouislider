@@ -154,6 +154,7 @@ var NouisliderComponent = (function () {
         });
     };
     NouisliderComponent.prototype.ngOnChanges = function (changes) {
+        console.log(this.ngModel);
         var _this = this;
         if (this.ngModel && this.slider && (changes.min || changes.max || changes.step || changes.range)) {
             setTimeout(function () {
